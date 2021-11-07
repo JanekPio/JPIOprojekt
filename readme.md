@@ -1,4 +1,3 @@
-#projekt
-dsasda
-dswasda
-sdadas
+#Jan Piotrowski presents:
+#Projekt czujnika dźwięku, oparty o płytkę Arduino
+
