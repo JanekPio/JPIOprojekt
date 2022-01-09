@@ -15,6 +15,57 @@ Układ ma za zadanie zapalać i gasić diodę po klaśnięciu lub uderzeniu w st
 ![img](./hardware/schemat1.jpg)
 # Zdjęcie przedstawiające fizycznie wykonany projekt:
 ![img](./hardware/płytka.jpg)
+# Kod programu:
+```cpp
+int Sensor = A0; //zadeklarowany pin do wyjścia mikrofonu
+
+int clap = 0; //zmienna klaśnięcia
+//clap = 0 - brak klaśnięcia
+//clap = 1 - potencjalne klaśnięcie
+//clap = 2 - potwiedzone klaśnięcie
+
+//zmienne dotyczące sprawdzenia klaśnięcia
+long detection_range_start = 0;
+long detection_range = 0;
+boolean status_lights = false; //status diody
+void setup() {
+pinMode(Sensor, INPUT); //deklaracja wejścia
+pinMode(13,OUTPUT); //deklaracja wyjścia
+}
+void loop() {
+int status_sensor = digitalRead(Sensor); //odczyt z sensora
+if (status_sensor == 0) //obsługa klaśnięć
+{
+if (clap == 0)
+{
+detection_range_start = detection_range = millis(); //ustalenie czasu klaśnięcia
+clap++;
+}
+else if (clap > 0 && millis()-detection_range >= 50) //potwierdzenie klaśnięcia
+{
+detection_range = millis();
+clap++;
+}
+}
+if (millis()-detection_range_start >= 400) //obsługia diody
+{
+if (clap == 2) //sprawdzenie czy nastąpiło klaśnięcie
+{
+if (!status_lights) //sprawdzenie zmiennej diody
+{
+status_lights = true; //ustawienie zmiennej diody
+digitalWrite(13, HIGH); //włączenie diody
+}
+else if (status_lights)
+{
+status_lights = false; //ustawienie zmiennej diody
+digitalWrite(13, LOW); //wyłączenie diody
+}
+}
+clap = 0;
+}
+}
+```
 # Film przedstawiający działanie układu:
 https://www.youtube.com/watch?v=pMVKR1Tf7g0
 
