@@ -1,7 +1,7 @@
-# Jan Piotrowski presents:
+# Jan Piotrowski:
 # Projekt czujnika dźwięku oparty o płytkę Arduino
 # Zarys działania projektu:
-Układ ma za zadanie zapalać i gasić diodę po klaśnięciu lub uderzeniu w stół
+Układ ma za zadanie zapalać i gasić diodę po uderzeniu w stół
 # Elementy potrzebne do wykonania projektu:
 - płytka Arduino Uno
 - płytka stykowa
