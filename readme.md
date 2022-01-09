@@ -6,7 +6,7 @@ Układ ma za zadanie zapalać i gasić diodę po uderzeniu w stół
 - płytka Arduino Uno
 - płytka stykowa
 - dioda LED
-- mikrofon
+- czujnik dźwięku
 - kable
 # Linki do elementów:
 - https://allegro.pl/oferta/zestaw-l-arduino-uno-starter-kit-prezent-9924753145
